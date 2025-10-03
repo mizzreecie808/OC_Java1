@@ -1,0 +1,202 @@
+Building Java Programs: A Back to Basics Approach, 5th Edition
+Chapter 2 - Self-Check Problems
+
+Section 2.2: Variables
+
+ 6. Which of the following choices is the correct syntax for declaring a real number variable named 
+    grade and initializing its value to 4.0?
+
+    a) int grade: 4.0;
+    b) grade = double 4.0;
+    c) double grade = 4.0; <-- answer
+    d) grade = 4;
+    e) 4.0 = grade;
+
+ 7. Imagine you are writing a personal fitness program that stores the user’s age, gender, height (in feet 
+    or meters), and weight (to the nearest pound or kilogram). Declare variables with the appropriate names 
+    and types to hold this information.
+    int age;
+    String gender;
+    double height;
+    double weight;
+
+ 8. Imagine you are writing a program that stores a student’s year (Freshman, Sophomore, Junior, or Senior), 
+    the number of courses the student is taking, and his or her GPA on a 4.0 scale. Declare variables with 
+    the appropriate names and types to hold this information.
+    String year;
+    int numberOfCourses;
+    double gpa;
+
+ 9. Suppose you have an int variable called number. 
+    What Java expression produces the last digit of the number (the 1s place)?
+    number % 10 = last digit
+
+10. The following program contains 7 mistakes! What are they?
+
+ 1  public class Oops2 {
+ 2      public static void main(String[] args) {
+ 3          int x;
+ 4          System.out.println("x is" x);
+ 5
+ 6          int x = 15.2;  // set x to 15.2
+ 7          System.out.println("x is now + x");
+ 8
+ 9          int y;  // set y to 1 more than x
+10          y = int x + 1;
+11          System.out.println("x and y are " + x + and + y);
+12      }
+13  }
+
+1. Line 4:  There should be a "+" between the string and x
+2. Line 4:  Variable x not assigned a value yet
+3. Line 6:  Redeclaring x variable
+4. Line 6:  Assigning a double to an int, missing (double) casting
+5. Line 7:  The 2nd x should be outside the quotes with a "+" in between the string and the variable
+6. Line 10: The "int" should be removed
+7. Line 11: The word and should be surrounded by "" (quotes)
+
+11. Suppose you have an int variable called number. 
+    What Java expression produces the second-to-last digit of the number (the 10s place)? 
+    number / 10 % 10	
+    What expression produces the third-to-last digit of the number (the 100s place)?
+    number / 100 % 10
+
+12. What is the value of variable x after the following code executes?
+
+    int x = 3;
+    x = x + 2; // x = 5
+    x = x + x; // x = 10
+
+    a) 3
+    b) 5
+    c) 7
+    d) 10 <-- answer
+    e) 12
+
+13. What are the values of a, b, and c after the following statements?
+
+    int a = 5;
+    int b = 10;
+    int c = b;	// c = 10
+
+    a = a + 1;	// a = 6
+    b = b - 1;	// b = 9
+    c = c + a;	// c = 16
+
+14. What are the values of first and second at the end of the following code? 
+    How would you describe the net effect of the code statements in this exercise?
+
+    int first = 8;
+    int second = 19;
+
+    first = first + second;	// 27
+    second = first − second;	// 8
+    first = first − second;	// 19
+
+15. Rewrite the code from the previous exercise to be shorter, by declaring the variables together and by using 
+    the special assignment operators (e.g., +=, −=, *=, and /=) as appropriate.
+
+16. What are the values of i, j, and k after the following statements?
+
+    int i = 2;
+    int j = 3;
+    int k = 4;
+    int x = i + j + k;	// x = 9
+
+    i = x - i - j;	// i = 4
+    j = x - j - k;	// j = 2
+    k = x - i - k;	// k = 1
+
+17. What is the output from the following code?
+
+    int max;
+    int min = 10;
+    max = 17 − 4 / 10;	// max = 17
+    max = max + 6;	// max = 23
+    min = max − min;	// min = 13
+
+    System.out.println(max * 2);	// 46
+    System.out.println(max + min);	// 36
+    System.out.println(max);		// 23
+    System.out.println(min);		// 13
+
+18. Suppose you have a real number variable x. 
+    Write a Java expression that computes the following value while using the * operator only four times:
+
+    y = 12.x^4 - 9.1x^3 + 19.3x^2 - 4.6x + 34.2
+
+19. The following program redundantly repeats the same expressions many times. 
+    Modify the program to remove all redundant expressions using variables of appropriate types.
+
+ 1   public class ComputePay {
+ 2       public static void main(String[] args) {
+ 3           // Calculate pay at work based on hours worked each day
+ 4           System.out.println("My total hours worked:");
+ 5           System.out.println(4 + 5 + 8 + 4);
+ 6
+ 7           System.out.println("My hourly salary:");
+ 8           System.out.println("$8.75");
+ 9
+10           System.out.println("My total pay:");
+11           System.out.println((4 + 5 + 8 + 4) * 8.75);
+12
+13           System.out.println("My taxes owed:");  // 20% tax
+14           System.out.println((4 + 5 + 8 + 4) * 8.75 * 0.20);
+15          }
+16      }
+
+ 1   public class ComputePay {
+ 2       public static void main(String[] args) {
+ 3           // Calculate pay at work based on hours worked each day
+ 4	     int totalHours = 4 + 5 + 8 + 4;
+ 5	     double salary = 8.75;
+ 6	     double totalPay = totalHours * salary;
+ 7	     double taxRate = 0.20;
+ 8	     double taxedPay = totalPay * taxRate;
+ 9
+10           System.out.println("My total hours worked:\n" + totalHours);
+11           System.out.println("My hourly salary:\n" + "$" + salary);
+12	     System.out.println("My total pay:\n" + totalPay);
+13	     System.out.println("My taxes owed:\n + taxedPay");
+14          }
+15      }
+
+20. The following program redundantly repeats the same expressions many times. 
+    Modify the program to remove all redundant expressions using variables of appropriate types.
+
+// This program computes the total amount owed for a meal,
+// assuming 8% tax and a 15% tip.
+public class Receipt {
+    public static void main(String[] args) {
+        System.out.println("Subtotal:");
+        System.out.println(38 + 40 + 30);
+        System.out.println("Tax:");
+        System.out.println((38 + 40 + 30) * .08);
+        System.out.println("Tip:");
+        System.out.println((38 + 40 + 30) * .15);
+        System.out.println("Total:");
+        System.out.println(38 + 40 + 30 +
+                           (38 + 40 + 30) * .08 +
+                           (38 + 40 + 30) * .15);
+    }
+}
+
+public class Receipt {
+    public static void main(String[] args) {
+	int subTotal = 38 + 40 + 30;
+        System.out.println("Subtotal:");
+        System.out.println(subTotal);
+
+	double tax = subTotal * .08;
+        System.out.println("Tax:");
+        System.out.println(tax);
+
+	double tip = subTotal * .15;
+        System.out.println("Tax:");
+        System.out.println(tax);
+
+	double total = subTotal + tax + tip;
+        System.out.println("Total:");
+        System.out.println(total);
+    }
+}
