@@ -1,0 +1,127 @@
+Step 1: 
+Analyze Output for SIZE = 5
+
+line	−L	Digit 	Digit	−R	Width
+                Value	Count
+1	5	1	1	5	11
+2	4	3	3	4	11
+3	3	5	5	3	11
+4	2	7	7	2	11
+5	1	9	9	1	11
+
+Expressions for SIZE = 5
+
+Char		Sequence		Difference	Expression (in terms of line)
+−		5, 4, 3, 2, 1		-1		6 - line
+Digit Value	1, 3, 5, 7, 9		+2		2 * line -1
+Digit Count	1, 3, 5, 7, 9		+2		2 * line -1
+Total Width	11, 11, 11, 11, 11	0 		11
+
+Expressions for SIZE = 5
+
+Character	Expression (in terms of line)
+−		Starts at 5, decreases by 1	(6 - line)
+Digit Value	Starts at 1, increases by 2	(2 * line - 1)
+Digit Count	Starts at 1, increases by 2	(2 * line - 1)
+Total Width	Constant (WIDTH)		11
+
+Step 2: Determine Scalability (The SIZE Constant)
+The SIZE constant usually determines the height of the output (number of lines) and 
+the maximum width or starting width. For this triangular pattern, the SIZE likely 
+relates to the width.
+
+---1---
+--333--
+-55555-
+​
+Analysis for SIZE = 3 (Hypothetical)
+line	−L	Digit 	Digit	−R	Width
+                Value	Count
+1	3	1	1	3	7
+2	2	3	3	2	7
+3	1	5	5	1	7
+
+Expressions for SIZE = 3
+
+Character	Expression (in terms of line)
+−		Starts at 3, decreases by 1	(4 - line)
+Digit Value	Same as before			(2 * line - 1)
+Digit Count	Same as before			(2 * line - 1)
+Total Width	Constant (WIDTH)		7
+
+Step 3: Find the General Expression with SIZE
+We'll use the results for SIZE = 5 and SIZE = 3 to find the 
+A * line + B * SIZE + C constants
+
+A. Expression for Digit Value and Digit Count
+The expression 
+(2 * line - 1)
+works for both SIZE = 5 and SIZE = 3
+Since the expression is independent of SIZE, the B * SIZE term = 0
+
+Expression for Digit Value and Count = 2 * line - 1
+B. Expression for the Hyphen (-) Count
+The line coefficient A is constant at -1. 
+We need to find the constant term B * SIZE + C
+
+The constant term is what the expression for SIZE must equal when line = 0
+
+Constant = (Value at line = 1) - (A * 1)
+SIZE = 5:
+           (Value at line = 1) is 5
+           Required Constant: 5 - (-1 * 1) = 6
+
+Equation 1: 5B + C = 6
+
+SIZE = 3:
+	   (Value at line = 1) is 3
+	    Required Constant: 3- (-1 * 1) = 4
+
+Equation 2: 3B + C = 4
+
+Solve for B and C:
+
+(5B + C) - (3B + C) = 6 - 4
+		 2B = 2
+		  B = 1
+Substitute B = 1 into Equation 2:
+
+	   3(1) + C = 4
+	      3 + C = 4
+		  C = 1
+The constant term is (1 * SIZE + 1)
+Expression for (-) count (SIZE + 1 - line)
+
+C. Expression for Total Width
+The total width is constant for any given SIZE
+
+Width is 11 when SIZE = 5
+
+Width is  7 when SIZE = 3
+
+The relationship is B * SIZE + C
+Equation 1:  5B + C = 11
+
+Equation 2:  3B + C = 7
+
+Solve for B and C:
+
+(5B + C) - (3B + C) = 11 - 7
+		 2B = 4
+		  B = 2
+
+Substitute B = 2 into Equation 2:
+
+	   3(2) + C = 7
+	      6 + C = 7
+		  C = 1
+
+Expression for Total Width (2 * SIZE + 1)
+Final Table of Expressions
+
+Feature			Expression 				Check
+			(in terms of line and SIZE)		(SIZE = 5, line = 3)
+- (Left/Right)		SIZE + 1 - line				5+1−3=3   (Correct)
+Digit Value		2 * line - 1				2(3)−1=5  (Correct)
+Digit Count		2 * line - 1				2(3)−1=5  (Correct)
+Total Width		2* SIZE + 1				2(5)+1=11 (Correct)
