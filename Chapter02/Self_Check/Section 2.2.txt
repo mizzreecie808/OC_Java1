@@ -51,7 +51,8 @@ Section 2.2: Variables
 2. Line 4:  Variable x not assigned a value yet
 3. Line 6:  Redeclaring x variable
 4. Line 6:  Assigning a double to an int, missing (double) casting
-5. Line 7:  The 2nd x should be outside the quotes with a "+" in between the string and the variable
+5. Line 7:  The 2nd x should be outside the quotes with a "+" in between the string 
+            and the variable
 6. Line 10: The "int" should be removed
 7. Line 11: The word and should be surrounded by "" (quotes)
 
@@ -121,12 +122,14 @@ Section 2.2: Variables
     System.out.println(min);		// 13
 
 18. Suppose you have a real number variable x. 
-    Write a Java expression that computes the following value while using the * operator only four times:
+    Write a Java expression that computes the following value while using the 
+    * operator only four times:
 
     y = 12.x^4 - 9.1x^3 + 19.3x^2 - 4.6x + 34.2
 
 19. The following program redundantly repeats the same expressions many times. 
-    Modify the program to remove all redundant expressions using variables of appropriate types.
+    Modify the program to remove all redundant expressions using variables of 
+    appropriate types.
 
  1   public class ComputePay {
  2       public static void main(String[] args) {
