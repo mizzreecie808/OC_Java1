@@ -1,0 +1,50 @@
+////////////////\\\\\\\\\\\\\\\\
+////////////********\\\\\\\\\\\\
+////////****************\\\\\\\\
+////************************\\\\
+********************************
+
+Step 1: 
+Analyze Output for SIZE = 5
+
+line	/	* 	\	Width
+1	16	0	16	32
+2	12	8	12	32
+3	8	16	8	32
+4	4	24	4	32
+5	0	32	0	32
+
+Step 2:
+Expressions for SIZE = 5
+
+Char		Sequence	Rate(A)		Constant at 	Expression 
+						line=0		(in terms of line)
+/		16,12,8,4,0	-4		16-(-4) = 20	-4 * line + 20
+*		0,8,16,24,32	+8		0-(+8) = -8	+8 * line - 8
+\		16,12,8,4,0	-4		16-(-4) = 20	-4 * line + 20
+Total Width	32,32,32,32,32	0		32		32
+
+
+Step 2: 
+Defining SIZE and Finding the B and C Constants
+For this figure, it's conventional for SIZE to represent the height of the figure, so 
+SIZE = 5. The total width (32) is treated as a separate, fixed constant we'll call WIDTH.
+
+We look for a relationship between the constant term from Step 1 and the SIZE value of 5.
+
+Char		Cstart		Reqd Rel to		C = B * SIZE 
+		Val @ line=0	SIZE = 5		+ Cfixed
+/		20		20 = 4 * 5		+4 * SIZE
+*		-8		-8 = -4 * 5 + 12	-4 * SIZE + 12
+\		20		20 = 4 * 5		+4 * SIZE
+
+Step 3:
+Final Expressions for Nested Loops
+Now, substitute the C expression from Step 2 back into the general form (A * line + C)
+
+Char		Rate(A * line)	C Term			Final scalable expression
+				(B * SIZE +Cfixed)
+/		-4 * line	+4 * SIZE		+4 * SIZE -4 * line
+*		+8 * line	-4 * SIZE + 12		+8 * line -4 * SIZE + 12
+\		-4 * line	+4 * SIZE		+4 * SIZE -4 * line
+

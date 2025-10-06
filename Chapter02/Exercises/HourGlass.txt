@@ -1,0 +1,83 @@
+|""""""""""|
+ \::::::::/
+  \::::::/
+   \::::/
+    \::/
+     ||
+    /::\
+   /::::\
+  /::::::\
+ /::::::::\
+|""""""""""|
+
+Step 1: 
+Analyze Output for SIZE = 5
+This figure is symmetrical, where the bottom half mirrors the top half. 
+Since the top half has 5 lines that change (plus the initial line 1) and the center line, let's define the top half's variable height as SIZE = 5
+
+Total height = 2 * SIZE + 1 = 2(5) + 1 = 11 lines
+
+Figure Section		line	Spaces	" 	:	Pipes (|, \, /)
+Quote line		1	0	10	0	|
+Top half		1	1	0	8	\
+L = 2 to 5		2	2	0	6	\
+			3	3	0	4	\
+			4	4	0	2	\
+Center line		5	5	0	0	|
+Bottom half		4	4	0	2	2
+			3	3	0	4	2	
+			2	2	0	6	2
+			1	1	0	8	2
+			11	0	10	0	|
+
+Step 2:
+Deriving Scalable Expressions
+The constant is SIZE = 5. 
+The variable loop counter is line, which runs from 1 to SIZE−1 (or 1 to SIZE) in each symmetrical loop.
+The outer loop will run from line = 1 to SIZE + 1 = 6 to cover the top half and center
+
+A. Non-Looping (Fixed) Elements
+These are printed once outside of the main loops.
+
+Char		Condition	Count (Base10)	Scalable Expression
+"		Top/Bottom	10		2 * SIZE
+space		Center line	5		SIZE
+center (|)					Center Line
+
+B. Top Half Loop (Closing)
+The for loop runs from line =1 to SIZE−1 (1 to 4).
+
+Char		L=1 to 4	Rate (A)	Expression in	Final Scalable Exp
+						terms of line
+space		1,2,3,4		+1		line		line
+:		8,6,4,2		-2		10 - 2 * line	2 * SIZE - 2 * line
+\		\		-		-
+		
+C.  Bottom Half Loop (Opening)
+The for loop also runs from line  = 1 to SIZE−1 (1 to 4). 
+The expressions are the inverse of the top half's spatial relationships.
+
+Char		L=1 to 4	Rate (A)	Expression in	Final Scalable Exp
+						terms of line
+space		4,3,2,1		-1		5 - line	SIZE - line
+:		2,4,6,8		+2		2 * line	2 * line
+/		/		-		-		/
+
+Step 3: Logic Table for Loop Implementation
+This table shows exactly how the loops are structured for the Java program.
+
+Code Block	Loop Counter/Limit			Char	Expression (Limit)
+Top/Bottom 	Outer print method			"	2 * SIZE
+Line
+TOP HALF	for (line = 1; line <= SIZE - 1; line++)		
+Spaces		for (i = 1; i <= ...; i++)		space	line
+Pipe/Slash	System.out.print()			\	1
+Colons		for (i = 1; i <= ...; i++)		:	2 * SIZE - 2 * line
+Pipe/Slash	System.out.print()	/	1
+CENTER LINE	Outer print method			space	SIZE
+		Outer print method				
+BOTTOM HALF	for (line = 1; line <= SIZE - 1; line++)		
+Spaces		for (i = 1; i <= ...; i++)		space	SIZE - line
+Pipe/Slash	System.out.print()			/	1
+Colons		for (i = 1; i <= ...; i++)		:	2 * line
+Pipe/Slash	System.out.print()			\	1
