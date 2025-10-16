@@ -1,0 +1,8 @@
+1. The Standard Maven Structure:
+   The core part of the setup is:
+   - src /     contains all your source code src/main/java/JavaFXGUI.java
+   - target /  folder where Maven puts compiled code, JARs and other artifacts
+     this folder is automatically created by Maven
+   - pom.xml / defines the project, its dependencies (like JavaFX modules),
+     and how to build it (using plugins like javafx:run)
+   All within a project folder
