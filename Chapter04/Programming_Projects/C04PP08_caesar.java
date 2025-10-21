@@ -12,59 +12,78 @@ import java.util.Scanner;
 public class C04PP08_caesar {
   public static void main(String[] args) {
 
-    Scanner console = new Scanner(System.in);
-    caesar("Attack zerg at dawn", 3);
+    caesar();
 
   }
 
-  public static String caesar(Scanner console) {
+  public static String caesar() {
+    Scanner console = new Scanner(System.in);
     IO.print("Your message? ");
     String message = console.nextLine();
+
+    if (message == null) {
+      throw new IllegalArgumentException("Message cannot be null.");
+    }
 
     IO.print("Encoding key? ");
     int key = console.nextInt();
 
-    String cipher = "";
-
-    for (int i = 0; i < message.length(); i++) {
-      int currValue = (int) message.charAt(i);
-      int newValue = currValue + key;
-      IO.println(currValue + " " + newValue);
+    if (key < 1 || key > 25) {
+      throw new IllegalArgumentException("Rotation key must be between 1 and 25");
     }
 
+    // initialize the return value of cipher
+    String cipher = "";
+
+    // convert to upperCase since the output is upperCase
+    message = message.toUpperCase();
+
+    // loop through each char in string
+    for (int i = 0; i < message.length(); i++) {
+
+      // initialize and assign the character @ i we are looking at
+      char currChar = message.charAt(i);
+
+      // only process letters
+      if (currChar >= 'A' && currChar <= 'Z') {
+        int currCharValue = currChar + key;
+
+        if (currCharValue > 'Z') {
+          // subtract 26 to get back to start of alphabet
+          currCharValue = currCharValue - 26;
+        }
+        cipher += (char) currCharValue;
+      } else {
+        cipher += currChar;
+      }
+    }
+    // used for testing code
+    IO.println(cipher);
     return cipher;
   }
 
   public static String caesar(String message, int key) {
 
     String cipher = "";
+    // convert to upperCase since the output is upperCase
     message = message.toUpperCase();
 
-    key = key % 26;
-
+    // loop through each char in string
     for (int i = 0; i < message.length(); i++) {
       char currChar = message.charAt(i);
 
       // only process letters
       if (currChar >= 'A' && currChar <= 'Z') {
-        int newCharValue = currChar + key;
+        int currCharValue = currChar + key;
 
-        if (newCharValue > 'Z') {
-          newCharValue = newCharValue - 26;
+        if (currCharValue > 'Z') {
+          // subtract 26 to get back to start of alphabet
+          currCharValue = currCharValue - 26;
         }
-        cipher += (char) newCharValue;
+        cipher += (char) currCharValue;
       } else {
         cipher += currChar;
       }
-
-      // int currValue = (int) message.charAt(i);
-      // int newValue = 0;
-      // if (currValue >= 88) {
-      //   newValue =  + 65;
-      // } else {
-      //   newValue = currValue + key;
-      // }
-      // IO.println((char) currValue + " " + (char) newValue);
     }
     IO.println(cipher);
     return cipher;
