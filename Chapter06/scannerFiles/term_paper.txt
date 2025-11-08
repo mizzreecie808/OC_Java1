@@ -1,0 +1,7 @@
+This is a short sample paper containing words and characters.
+
+Two   spaces here.
+
+Data!
+
+Final thought.
