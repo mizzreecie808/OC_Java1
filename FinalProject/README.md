@@ -15,62 +15,47 @@ A command-line terminal (like Command Prompt, PowerShell, or Terminal).
 
 1. Compilation
 
-First, make sure all six .java files are in one directory. Then, compile them using the Java compiler (javac):
-
-javac *.java
-
-This generates the necessary compiled .class files.
+- First, make sure all six .java files are in one directory. Then, compile them using the Java compiler (javac):
+- javac *.java: This generates the necessary compiled .class files.
 
 2. Execution
-
-Run the main driver class, LoanComparisonApp:
-
-java LoanComparisonApp
+- Run the main driver class, LoanComparisonApp: java LoanComparisonApp
 
 3. User Input & Validation
-
-The UserInterface.java (my input handler!) will guide you through entering two sets of loan parameters. Remember these key points for input:
-
-Parameter
-
-What to Enter
-
-Note (from the code)
-
-P (Principal)
-
-A positive number.
-
-"Error: Principal must be a positive amount."
-
-R (Annual Rate)
-
-Rate as a percentage (e.g., 5.0).
-
-"Error: Rate must be positive or zero."
-
-T (Term)
-
-Duration in full years.
-
-"Error: Term must be at least 1 year."
-
-n (Frequency)
-
-Compounding Frequency.
-
-"0 if Simple Interest Loan."
+The UserInterface.java will provide prompts for enter two sets of loan parameters.
+- Principal
+  - Enter Loan Principal ($)
+  - Principal must be a positive amount
+- Annual Rate
+  - Enter Annual Interest Rate (e.g. 5 for 5%)
+  - Rate must be positive or zero.
+- Term
+  - Enter Loan Term (in full years):
+  - Term must be at least 1 year.
+- Compounding Frequency
+  - Enter Compound Frequency (n): (e.g. 12 for Monthly, or 0 if simple interest loan):
+  - Frequency must be positive number or zero.
 
 4. Output Example
 
 The program prints the results using specific printf formatting to ensure the dollar amounts line up perfectly:
 
---- Loan Comparison Results ---
-------------------------------------
-Loan Name: Simple Savings Bond
-  Total Interest Paid:          $5,000.00
-  Total Principal & Interest:  $15,000.00
+Loan Simple    $10,000 // 5.0% // 10 years // n = 0
+Loan Compound  $10,000 // 5.0% // 10 years // n = 12
 
+
+------------------------------------
+Loan Name: Simple
+  Total Interest Paid:         $    5,000.00
+  Total Principal & Interest:  $   15,000.00
+------------------------------------
+Loan Name: Compound
+  Total Interest Paid:         $    6,470.09
+  Total Principal & Interest:  $   16,470.09
+
+--- Recommendation ---
+The better loan is: Simple
+Interest paid for Simple ($5,000.00) is less than for Compound ($6,470.09).
 
 ## License
 
