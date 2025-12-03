@@ -74,4 +74,4 @@ https://opensource.org/license/mit
 This README was created with guidance from the following resources:
 
 - [Markdown Guide](https://www.markdownguide.org/) – for Markdown syntax and formatting  
-- [GitHub Docs: Basic Writing and Formatting Syntax](https://docs.github.com/en/get-started/writing-on-github/basic-writing-and-formatting-syntax) – for writing GitHub README files
+- [Markdown Live Editor](https://markdowncheatsheet.com/) – for writing README files
