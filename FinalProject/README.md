@@ -38,14 +38,14 @@ The UserInterface.java will provide prompts for enter two sets of loan parameter
 The program prints the results using specific printf formatting to ensure the dollar amounts line up perfectly:
 
 ## Sample Input
-'''
+```
 Loan Simple    $10,000 // 5.0% // 10 years // n = 0
 Loan Compound  $10,000 // 5.0% // 10 years // n = 12
-'''
+```
 
 ## Sample Output
 
-'''
+```
 ------------------------------------
 Loan Name: Simple
   Total Interest Paid:         $    5,000.00
@@ -58,7 +58,7 @@ Loan Name: Compound
 --- Recommendation ---
 The better loan is: Simple
 Interest paid for Simple ($5,000.00) is less than for Compound ($6,470.09).
-'''
+```
 
 ## License
 
