@@ -66,3 +66,12 @@ This project is open source and distributed under the MIT License. See the inclu
 
 (See LICENSE.txt)
 https://opensource.org/license/mit
+
+---
+
+## References
+
+This README was created with guidance from the following resources:
+
+- [Markdown Guide](https://www.markdownguide.org/) – for Markdown syntax and formatting  
+- [GitHub Docs: Basic Writing and Formatting Syntax](https://docs.github.com/en/get-started/writing-on-github/basic-writing-and-formatting-syntax) – for writing GitHub README files
